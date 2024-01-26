@@ -1,42 +1,73 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.header {
+  height: 8.4rem;
+  border-bottom: 0.8px solid #323232;
+  margin-bottom: 2.1rem;
+  .header-content {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo img {
+      height: 3.7rem;
+      width: 14.1rem;
+    }
+    .nav {
+      color: #fff;
+      font-size: 1.6rem;
+      display: flex;
+      ul {
+        list-style: none;
+        display: flex;
+        gap: 3rem;
+        &:first-child {
+          padding-right: 3rem;
+          border-right: 1px solid #e4ebf3;
+        }
+        &:last-child {
+          padding-left: 3rem;
+        }
+      }
+    }
+  }
+}
+
+.hero {
+  margin-bottom: 10.6rem;
   text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+  position: relative;
+  .hero-img {
+    height: 99.1rem;
+    width: 45.2rem;
   }
-  to {
-    transform: rotate(360deg);
+  .hero-content {
+    position: absolute;
+    bottom: 11.1rem;
+    left: 50%;
+    transform: translate(-50%);
+    width: 74.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1 {
+      font-size: 5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 3.1rem;
+      width: 63.6rem;
+    }
+    p {
+      font-size: 2rem;
+      background: linear-gradient(
+        90deg,
+        #cb9fff -1.87%,
+        #eec6ff 50.45%,
+        #ffdcfe 119.8%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+      margin-bottom: 3.7rem;
+    }
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
