@@ -286,6 +286,126 @@
       url("./assets/images/Artboard\ 1\ 2.png");
     background-size: cover;
     margin-bottom: 54.7rem !important;
-    padding-top: 7.8rem !important;
+    position: relative;
+    .comparison {
+      position: absolute;
+      top: 7.8rem;
+      left: 50%;
+      transform: translate(-50%);
+      &-card {
+        width: 101.6rem;
+        height: 38rem;
+        border-radius: 2rem;
+        border: 5px solid;
+        background: #fff;
+        padding: 3.3rem 5rem 3.3rem 3.5rem;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: top;
+        .heading {
+          width: 100%;
+          h2 {
+            font-size: 25px;
+            font-weight: 700;
+          }
+          img {
+            height: 25.65rem;
+          }
+        }
+        .points {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 1.8rem;
+          ul {
+            list-style: none;
+            li {
+              height: 7.1rem;
+              border-radius: 1rem;
+              background: #eee;
+              margin-bottom: 1rem;
+              display: grid;
+              place-items: center;
+              font-size: 1.6rem;
+              font-weight: 700;
+              text-align: center;
+              &:last-child {
+                margin-bottom: 0;
+              }
+            }
+            &:first-child li {
+              width: 12.5rem;
+              color: #222;
+            }
+            &:last-child li {
+              width: 40.7rem;
+              color: #4f4f4f;
+              border: 2px solid #dfdfdf;
+              padding: 0 5rem;
+            }
+          }
+        }
+        &.others {
+          border-color: #878787;
+          gap: 5.86rem;
+          margin-bottom: 4.6rem;
+          .heading {
+            h2 {
+              margin-bottom: 4.33rem;
+              color: #5a5a5a;
+            }
+            img {
+              position: relative;
+              left: 2.9rem;
+            }
+          }
+        }
+        &.hoca {
+          border-color: #a962f9;
+          box-shadow: 0 0 6.41rem 0 #7c19ea66;
+          gap: 2.3rem;
+          margin-bottom: 4.4rem;
+          .heading {
+            h2 {
+              color: #9445ec;
+              margin-bottom: 2.5rem;
+            }
+            img {
+              height: 28.6rem;
+              position: relative;
+              left: -2.9rem;
+            }
+          }
+          .points ul:last-child li {
+            color: #7c19ea;
+            border-color: #cfa4ff;
+          }
+        }
+      }
+      .arrow-bottom {
+        height: 2.3rem;
+        text-align: center;
+        margin-bottom: 4.6rem;
+      }
+
+      a {
+        color: #915bff;
+        font-size: 1.8rem;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.7rem 0;
+        transition: all 0.3s;
+        img {
+          height: 1rem;
+        }
+        &:hover {
+          gap: 1.2rem;
+        }
+      }
+    }
   }
 }
