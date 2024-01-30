@@ -123,6 +123,24 @@ const App = () => {
           </div>
         </div>
       </section>
+      <section className="advantages">
+        <div className="advantages-heading">
+          <div className="gate">
+            <div></div>
+            <div></div>
+          </div>
+          <h1>호카 서비스, 무엇이 다를까요?</h1>
+          <div className="gate">
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div className="advantages-desc">
+          <p>저렴한 비용, 법률 업무 해결 및 리스크 걱정 하지마세요!</p>
+          <p>알선 회사들과는 차별화 된 솔루션을 제시합니다.</p>
+        </div>
+        <div className="advantages-content container"></div>
+      </section>
     </>
   );
 };
