@@ -249,6 +249,16 @@ const App = () => {
           </ul>
         </div>
       </section>
+      <section className="join">
+        <h1>
+          <p>이젠 호카 팀과 함께</p>
+          <p>보다 합리적으로, 효율적으로 고용하세요!</p>
+        </h1>
+        <Button>문의하기</Button>
+        <div className="join-text">
+          <p>JOIN WITH HOCA TEAM</p>
+        </div>
+      </section>
     </>
   );
 };
