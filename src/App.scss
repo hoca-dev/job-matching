@@ -197,6 +197,30 @@
         padding: 0 5rem 5.4rem 0;
         margin-bottom: 2.6rem;
         overflow-x: scroll;
+        /* For WebKit browsers (e.g., Chrome, Safari) */
+        &::-webkit-scrollbar {
+          height: 2px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: #fff;
+        }
+
+        &::-webkit-scrollbar-track {
+          background-color: #8b8b8b;
+        }
+
+        /* For Firefox */
+        /* Note: Firefox supports scrollbar customization starting from version 64 */
+        /* You may need to check for updates if this doesn't work */
+        /* and consider browser compatibility if this is for a public website */
+        scrollbar-color: white;
+
+        /* For Internet Explorer and Edge */
+        /* Note: Custom scrollbar styling is not supported in IE, only Edge */
+        /* You may need to use -ms-overflow-style for older versions of Edge */
+        /* and check for updates if this doesn't work */
+        -ms-overflow-style: -ms-autohiding-scrollbar;
       }
       .list-desc {
         p {
@@ -406,6 +430,184 @@
           gap: 1.2rem;
         }
       }
+    }
+  }
+}
+
+.advertising {
+  margin-bottom: 15.3rem !important;
+  h1 {
+    color: #fff;
+    text-align: center;
+    font-size: 5rem;
+    font-weight: 700;
+    margin-bottom: 3.4rem;
+  }
+  &-desc {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(
+      90deg,
+      #cb9fff -1.87%,
+      #eec6ff 50.45%,
+      #ffdcfe 119.8%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 4.8rem;
+  }
+  &-card {
+    width: 100%;
+    height: 36.8rem;
+    background-color: #fff;
+    border-radius: 4rem;
+    position: relative;
+    .star {
+      position: absolute;
+      right: -14.3rem;
+      top: -17.1rem;
+      z-index: -9;
+    }
+    .frame {
+      width: 100%;
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      img {
+        &:last-child {
+          position: absolute;
+          left: -6rem;
+          bottom: 3px;
+        }
+      }
+    }
+    .content {
+      height: 100%;
+      padding-left: 40.2rem;
+      padding-right: 8.7rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 7.9rem;
+      list-style: none;
+      .pin {
+        width: 3.1rem;
+        height: 3.1rem;
+        border-radius: 0.5rem;
+        background: #000;
+        color: #fff;
+        font-size: 1.8rem;
+        font-weight: 600;
+        line-height: 170%;
+        text-align: center;
+        margin-bottom: 1.1rem;
+      }
+      h2 {
+        color: #000;
+        font-size: 2rem;
+        font-weight: 500;
+        line-height: 160%;
+        width: 25.3rem;
+        margin-bottom: 1.3rem;
+        span {
+          font-weight: 600;
+        }
+      }
+      p {
+        color: #000;
+        font-size: 1.6rem;
+        font-weight: 600;
+        width: 22.4rem;
+      }
+    }
+  }
+}
+
+.join {
+  background-color: #090909;
+  padding-top: 10.3rem;
+  padding-bottom: 6.26rem;
+  text-align: center;
+  h1 {
+    color: #fff;
+    text-align: center;
+    font-size: 5rem;
+    font-weight: 700;
+    margin-bottom: 3.4rem;
+  }
+  &-text {
+    margin: 7.3rem;
+    background-image: linear-gradient(
+      180deg,
+      #09090900 0%,
+      #09090970 22.4%,
+      #090909db 52.4%,
+      #090909 100%
+    );
+    p {
+      background: linear-gradient(
+        180deg,
+        #7900ff63 0%,
+        #7900ff63 0.01%,
+        rgba(194, 139, 255, 0.23) 51.67%,
+        #ffffff00 100%,
+        #ffffff00 100%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 9rem;
+      font-weight: 500;
+      position: relative;
+      top: -2.9rem;
+    }
+  }
+}
+
+.footer {
+  background-color: #fff;
+  padding: 3.3rem 17.2rem 3.7rem 17.2rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 9rem;
+  &-logo img {
+    height: 7.2rem;
+  }
+  &-content {
+    padding: 0 1.5rem 1.2rem 1.5rem;
+    .nav ul {
+      list-style: none;
+      display: flex;
+      padding: 0.8rem 0;
+      margin-bottom: 1.8rem;
+      li {
+        align-items: center;
+        color: #424242;
+        font-size: 1.4rem;
+        font-weight: 400;
+        padding: 0 1.36rem;
+        border-right: 1px solid #d4d4d4;
+        &:first-child {
+          padding-left: 0;
+        }
+        &:last-child {
+          padding-right: 0;
+          border: none;
+        }
+      }
+      .selected {
+        font-weight: 700;
+      }
+    }
+    .desc p {
+      color: #424242;
+      font-size: 1.2rem;
+      font-weight: 400;
     }
   }
 }

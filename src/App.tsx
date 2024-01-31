@@ -15,6 +15,10 @@ import group1 from "./assets/images/Group 46.png";
 import group2 from "./assets/images/Group 47.png";
 import arrowBottom from "./assets/images/Polygon 1.svg";
 import arrowRight from "./assets/images/Vector (1).svg";
+import addFrame1 from "./assets/images/Frame.png";
+import addFrame2 from "./assets/images/Group 52.png";
+import asteriks2 from "./assets/images/Asterisk 2.png";
+import logoDark from "./assets/images/logo 4.svg";
 import { Button, PriceCard } from "./components";
 
 const App = () => {
@@ -211,6 +215,76 @@ const App = () => {
           </div>
         </div>
       </section>
+      <section className="advertising container">
+        <h1>업무 파악 후 즉시 투입, 합리적인 선택</h1>
+        <div className="advertising-desc">
+          <p>투입 즉시 전력이 되는 경력 개발자, 이젠 기다릴 필요 없어요!</p>
+          <p>꼼꼼한 업무 파악 과정을 거친 후 바로 투입해요.</p>
+        </div>
+        <div className="advertising-card">
+          <img src={asteriks2} alt="asteriks2" className="star" />
+          <div className="frame">
+            <img src={addFrame2} alt="add frame" />
+            <img src={addFrame1} alt="add frame" />
+          </div>
+          <ul className="content">
+            <li>
+              <div className="pin">1</div>
+              <h2>
+                <span>법적인 위험 걱정</span>은 이제 그만!{" "}
+                <span>서비스 개발에만 집중</span>하세요!
+              </h2>
+              <p>
+                민사전문변호사 개발자의 공동 창업! 법적인 문제는 No Problem!
+              </p>
+            </li>
+            <li>
+              <div className="pin">2</div>
+              <h2>
+                <span>보다 합리적인 비용으로, 연차 책정에 따른 비용</span>지불!
+              </h2>
+              <p>
+                개발자의 과다한 급여 책정 NO! 보다 합리적으로, 보다 효율적으로!
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section className="join">
+        <h1>
+          <p>이젠 호카 팀과 함께</p>
+          <p>보다 합리적으로, 효율적으로 고용하세요!</p>
+        </h1>
+        <Button>문의하기</Button>
+        <div className="join-text">
+          <p>JOIN WITH HOCA TEAM</p>
+        </div>
+      </section>
+      <footer className="footer">
+        <div className="footer-logo">
+          <img src={logoDark} alt="logo dark" />
+        </div>
+        <div className="footer-content">
+          <nav className="nav">
+            <ul>
+              <li>회사소개</li>
+              <li>이용약관</li>
+              <li className="selected">개인정보처리방침</li>
+              <li>도움말</li>
+              <li>문의하기</li>
+            </ul>
+          </nav>
+          <div className="desc">
+            <p>대표전화 : +82 02 598-3373</p>
+            <p>
+              서울 서초구 반포대로21길 39 (서초동, 산해빌딩) 402호
+              (대표자:박형준) 사업자등록번호 : 132-87-02761
+            </p>
+            <p>전화번호 : +82 010-4787-3373 ㅣ 이메일 : jun@hoca.dev</p>
+            <p>Copyright 2024. HOCA Company. All Rights Reserved.</p>
+          </div>
+        </div>
+      </footer>
     </>
   );
 };
