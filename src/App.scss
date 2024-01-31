@@ -197,6 +197,30 @@
         padding: 0 5rem 5.4rem 0;
         margin-bottom: 2.6rem;
         overflow-x: scroll;
+        /* For WebKit browsers (e.g., Chrome, Safari) */
+        &::-webkit-scrollbar {
+          height: 2px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: #fff;
+        }
+
+        &::-webkit-scrollbar-track {
+          background-color: #8b8b8b;
+        }
+
+        /* For Firefox */
+        /* Note: Firefox supports scrollbar customization starting from version 64 */
+        /* You may need to check for updates if this doesn't work */
+        /* and consider browser compatibility if this is for a public website */
+        scrollbar-color: white;
+
+        /* For Internet Explorer and Edge */
+        /* Note: Custom scrollbar styling is not supported in IE, only Edge */
+        /* You may need to use -ms-overflow-style for older versions of Edge */
+        /* and check for updates if this doesn't work */
+        -ms-overflow-style: -ms-autohiding-scrollbar;
       }
       .list-desc {
         p {
