@@ -12,6 +12,20 @@ body {
   font-weight: 500;
   background-color: #0f0f0f;
   overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #fff;
+    &:active {
+      background-color: #cfcfcf;
+    }
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #8b8b8b;
+  }
+  scrollbar-color: white;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
 a {

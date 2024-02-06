@@ -1,0 +1,32 @@
+.header {
+  height: 8.4rem;
+  border-bottom: 0.8px solid #323232;
+  margin-bottom: 2.1rem;
+  .header-content {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo img {
+      height: 3.7rem;
+      width: 14.1rem;
+    }
+    .nav {
+      color: #fff;
+      font-size: 1.6rem;
+      display: flex;
+      ul {
+        list-style: none;
+        display: flex;
+        gap: 3rem;
+        &:first-child {
+          padding-right: 3rem;
+          border-right: 1px solid #e4ebf3;
+        }
+        &:last-child {
+          padding-left: 3rem;
+        }
+      }
+    }
+  }
+}

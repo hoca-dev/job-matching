@@ -1,36 +1,3 @@
-.header {
-  height: 8.4rem;
-  border-bottom: 0.8px solid #323232;
-  margin-bottom: 2.1rem;
-  .header-content {
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .logo img {
-      height: 3.7rem;
-      width: 14.1rem;
-    }
-    .nav {
-      color: #fff;
-      font-size: 1.6rem;
-      display: flex;
-      ul {
-        list-style: none;
-        display: flex;
-        gap: 3rem;
-        &:first-child {
-          padding-right: 3rem;
-          border-right: 1px solid #e4ebf3;
-        }
-        &:last-child {
-          padding-left: 3rem;
-        }
-      }
-    }
-  }
-}
-
 .hero {
   margin-bottom: 10.6rem;
   text-align: center;
@@ -201,25 +168,13 @@
         &::-webkit-scrollbar {
           height: 2px;
         }
-
         &::-webkit-scrollbar-thumb {
           background-color: #fff;
         }
-
         &::-webkit-scrollbar-track {
           background-color: #8b8b8b;
         }
-
-        /* For Firefox */
-        /* Note: Firefox supports scrollbar customization starting from version 64 */
-        /* You may need to check for updates if this doesn't work */
-        /* and consider browser compatibility if this is for a public website */
         scrollbar-color: white;
-
-        /* For Internet Explorer and Edge */
-        /* Note: Custom scrollbar styling is not supported in IE, only Edge */
-        /* You may need to use -ms-overflow-style for older versions of Edge */
-        /* and check for updates if this doesn't work */
         -ms-overflow-style: -ms-autohiding-scrollbar;
       }
       .list-desc {
@@ -564,50 +519,6 @@
       font-weight: 500;
       position: relative;
       top: -2.9rem;
-    }
-  }
-}
-
-.footer {
-  background-color: #fff;
-  padding: 3.3rem 17.2rem 3.7rem 17.2rem;
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  gap: 9rem;
-  &-logo img {
-    height: 7.2rem;
-  }
-  &-content {
-    padding: 0 1.5rem 1.2rem 1.5rem;
-    .nav ul {
-      list-style: none;
-      display: flex;
-      padding: 0.8rem 0;
-      margin-bottom: 1.8rem;
-      li {
-        align-items: center;
-        color: #424242;
-        font-size: 1.4rem;
-        font-weight: 400;
-        padding: 0 1.36rem;
-        border-right: 1px solid #d4d4d4;
-        &:first-child {
-          padding-left: 0;
-        }
-        &:last-child {
-          padding-right: 0;
-          border: none;
-        }
-      }
-      .selected {
-        font-weight: 700;
-      }
-    }
-    .desc p {
-      color: #424242;
-      font-size: 1.2rem;
-      font-weight: 400;
     }
   }
 }
