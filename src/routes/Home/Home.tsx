@@ -54,7 +54,7 @@ export const HomeRoute = () => {
               한국의 회사에게 필요한 서비스를 제공합니다.
             </p>
           </div>
-          <div className={(classNames(styles.cards), "container")}>
+          <div className={classNames(styles.cards, "container")}>
             <img src={card1} alt="card-1" />
             <img src={card2} alt="card-2" />
             <img src={card3} alt="card-3" />

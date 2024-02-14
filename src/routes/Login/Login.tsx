@@ -1,13 +1,9 @@
 import styled from "styled-components";
 import { LoginComponent } from "../../components";
-import { createClient } from "@supabase/supabase-js";
 import googleIcon from "../../assets/images/icons8-google.svg";
-
-const SUPABASE_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF6a3lxdGxqc2NvY2d1ZGxsaHNsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDczNzQwMTcsImV4cCI6MjAyMjk1MDAxN30.tBDQODLt3Yv5QMcC5k82KRG7kGVeosfhrHZNROEXSac";
-
-const SUPABASE_URL = "https://azkyqtljscocgudllhsl.supabase.co";
-const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+import { useCreateDevMutation, useGoogleAuthMutation } from "../../store";
+import { useEffect } from "react";
+import { supabase } from "../../supabase";
 
 const LoginRouteContainer = styled.div`
   width: 100%;
@@ -31,14 +27,16 @@ const LoginRouteContainer = styled.div`
 `;
 
 export const LoginRoute = () => {
-  const googleLogin = async () => {
-    await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: {
-        redirectTo: "http://localhost:5173/dashboard",
-      },
-    });
-  };
+  const [googleLogin, { data: newUser, isSuccess, isLoading, isError }] =
+    useGoogleAuthMutation();
+
+  const [createDev, { data: newDev }] = useCreateDevMutation();
+
+  useEffect(() => {
+    if (isSuccess) {
+      createDev("vmflmvlfkmv fr vkfr");
+    }
+  }, [isSuccess]);
   return (
     <LoginRouteContainer>
       <button className="google-btn" onClick={googleLogin}>
