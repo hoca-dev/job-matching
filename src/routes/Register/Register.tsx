@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { RegisterComponent } from "../../components";
 import googleIcon from "../../assets/images/icons8-google.svg";
 import { useGoogleAuthMutation } from "../../store";
-
 const RegisterRouteContainer = styled.div`
   width: 100%;
   height: 100vh;
@@ -25,7 +24,7 @@ const RegisterRouteContainer = styled.div`
 `;
 
 export const RegisterRoute = () => {
-  const [googleLogin, data] = useGoogleAuthMutation();
+  const [googleLogin] = useGoogleAuthMutation();
 
   return (
     <RegisterRouteContainer>

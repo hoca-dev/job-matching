@@ -1,5 +1,6 @@
 import { createApi, fakeBaseQuery } from "@reduxjs/toolkit/query/react";
 import { supabase } from "../../../supabase";
+import { Routes } from "../../../constants";
 // import { baseQuery } from "../config";
 
 export const authApi = createApi({
@@ -32,7 +33,7 @@ export const authApi = createApi({
             data: {
               fullname,
             },
-            emailRedirectTo: "http://localhost:5173/dashboard",
+            emailRedirectTo: `http://localhost:5173${Routes.Dashboard}`,
           },
         });
 
@@ -57,30 +58,30 @@ export const authApi = createApi({
         return { data };
       },
     }),
-    createDev: mutation({
-      queryFn: async (id) => {
-        const { data, error } = await supabase
-          .from("devs-prototype")
-          .insert({ id });
-
-        if (error) {
-          throw error;
-        }
-
-        return { data };
-      },
-    }),
-    // signOut: mutation({
-    //   queryFn: async () => {
-    //     const { error } = await supabase.auth.signOut();
+    // createDev: mutation({
+    //   queryFn: async (id) => {
+    //     const { data, error } = await supabase
+    //       .from("devs-prototype")
+    //       .insert({ id });
 
     //     if (error) {
     //       throw error;
     //     }
 
-    //     return {};
+    //     return { data };
     //   },
     // }),
+    signOut: mutation({
+      queryFn: async () => {
+        const { error } = await supabase.auth.signOut();
+
+        if (error) {
+          throw error;
+        }
+
+        return { error };
+      },
+    }),
   }),
 });
 
@@ -88,5 +89,6 @@ export const {
   useGoogleAuthMutation,
   useEmailSignupMutation,
   useEmailSigninMutation,
-  useCreateDevMutation,
+  // useCreateDevMutation,
+  useSignOutMutation,
 } = authApi;

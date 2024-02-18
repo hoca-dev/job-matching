@@ -1,9 +1,7 @@
 import styled from "styled-components";
 import { LoginComponent } from "../../components";
 import googleIcon from "../../assets/images/icons8-google.svg";
-import { useCreateDevMutation, useGoogleAuthMutation } from "../../store";
-import { useEffect } from "react";
-import { supabase } from "../../supabase";
+import { useGoogleAuthMutation } from "../../store";
 
 const LoginRouteContainer = styled.div`
   width: 100%;
@@ -27,16 +25,8 @@ const LoginRouteContainer = styled.div`
 `;
 
 export const LoginRoute = () => {
-  const [googleLogin, { data: newUser, isSuccess, isLoading, isError }] =
-    useGoogleAuthMutation();
+  const [googleLogin] = useGoogleAuthMutation();
 
-  const [createDev, { data: newDev }] = useCreateDevMutation();
-
-  useEffect(() => {
-    if (isSuccess) {
-      createDev("vmflmvlfkmv fr vkfr");
-    }
-  }, [isSuccess]);
   return (
     <LoginRouteContainer>
       <button className="google-btn" onClick={googleLogin}>

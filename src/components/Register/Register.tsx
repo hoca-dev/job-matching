@@ -1,24 +1,34 @@
 import { Link } from "react-router-dom";
 import styles from "./Register.module.scss";
-import { useEffect, useState } from "react";
-import { useCreateDevMutation, useEmailSignupMutation } from "../../store";
-import { supabase } from "../../supabase";
+import { useEffect } from "react";
+import { useEmailSignupMutation } from "../../store";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { Routes } from "../../constants";
+
+interface RegisterForm {
+  email: string;
+  password: string;
+  fullname: string;
+}
 
 export const RegisterComponent = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [fullname, setFullname] = useState("");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<RegisterForm>();
 
-  const [emailSignUp, { data: newUser, isLoading, isSuccess, isError }] =
-    useEmailSignupMutation();
-
-  const [createDev, { data: newDev }] = useCreateDevMutation();
+  const [emailSignUp, { isSuccess }] = useEmailSignupMutation();
 
   useEffect(() => {
     if (isSuccess) {
-      createDev(newUser?.user?.id);
+      alert("We just sent confirmation email! Please confirm!");
     }
   }, [isSuccess]);
+
+  const registerHandler: SubmitHandler<RegisterForm> = (data) => {
+    emailSignUp(data);
+  };
 
   return (
     <div className={styles["login-container"]}>
@@ -34,34 +44,39 @@ export const RegisterComponent = () => {
         <div className={styles["box-container"]}>
           <form
             className={styles["form-container"]}
-            onSubmit={(event) => {
-              event.preventDefault();
-              emailSignUp({ email, password, fullname });
-            }}
+            onSubmit={handleSubmit(registerHandler)}
           >
             <input
               type="text"
               placeholder="Full name"
               required
-              onChange={(event) => setFullname(event.target.value)}
+              {...register("fullname")}
             />
             <input
               type="email"
               placeholder="Email"
               required
-              onChange={(event) => setEmail(event.target.value)}
+              {...register("email")}
             />
             <input
               type="password"
               placeholder="Password"
               required
-              onChange={(event) => setPassword(event.target.value)}
+              minLength={8}
+              {...register("password", {
+                pattern: /^(?=.*[A-Za-z])(?=.*\d)/,
+              })}
             />
+            {errors.password && (
+              <span className={styles.passwordErrorMessage}>
+                Password must contain at least one letter and one number
+              </span>
+            )}
             <button type="submit">Register</button>
           </form>
           <p className={styles["line-text"]}>
             Already have an account?{" "}
-            <Link to="#" className={styles["bold-link"]}>
+            <Link to={Routes.Login} className={styles["bold-link"]}>
               Login
             </Link>
           </p>
