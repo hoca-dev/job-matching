@@ -9,9 +9,15 @@ import {
   faCircleRight,
   faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
-import { useLoadDevsQuery, useSignOutMutation } from "../../store";
-import { Link, redirect, useNavigate } from "react-router-dom";
+import { faUser } from "@fortawesome/free-regular-svg-icons";
+import {
+  useLoadDevsQuery,
+  useSignOutMutation,
+  useUserDataQuery,
+} from "../../store";
+import { Link, redirect, useLocation, useNavigate } from "react-router-dom";
 import { Routes } from "../../constants";
+import { Circles } from "react-loader-spinner";
 
 export const dashboardLoader = async () => {
   if (!localStorage.getItem("authenticated")) {
@@ -23,6 +29,7 @@ export const dashboardLoader = async () => {
 
 export const DashboardRoute = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [signOut, { isSuccess }] = useSignOutMutation();
 
   const [isMenuOpen, setIsMenuOpen] = useState(true);
@@ -32,6 +39,8 @@ export const DashboardRoute = () => {
     isLoading: isDevsLoading,
     isSuccess: isDevsSuccess,
   } = useLoadDevsQuery();
+
+  const { data: user } = useUserDataQuery();
 
   const [filteredDevList, setFilteredDevList] = useState([]);
 
@@ -69,6 +78,45 @@ export const DashboardRoute = () => {
               <img src={logo} alt="logo" />
             </Link>
           </div>
+          {location.state ? (
+            <div className={styles.user}>
+              <div className={styles["user-img"]}>
+                {location.state.user?.user_metadata?.avatar_url ? (
+                  <img
+                    src={location.state.user?.user_metadata?.avatar_url}
+                    alt=""
+                  />
+                ) : (
+                  <FontAwesomeIcon icon={faUser} size="3x" color="#ffffffdd" />
+                )}
+              </div>
+              {location.state && (
+                <div className={styles["user-desc"]}>
+                  <h1>{location.state.user?.user_metadata?.full_name}</h1>
+                  <p>{location.state.user?.email}</p>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className={styles.user}>
+              <div className={styles["user-img"]}>
+                {user?.session?.user?.user_metadata?.avatar_url ? (
+                  <img
+                    src={user?.session?.user?.user_metadata?.avatar_url}
+                    alt=""
+                  />
+                ) : (
+                  <FontAwesomeIcon icon={faUser} size="3x" color="#ffffffdd" />
+                )}
+              </div>
+              {user && (
+                <div className={styles["user-desc"]}>
+                  <h1>{user?.session?.user?.user_metadata?.full_name}</h1>
+                  <p>{user?.session?.user?.email}</p>
+                </div>
+              )}
+            </div>
+          )}
           <div className={styles["log-out"]} onClick={signOut}>
             <FontAwesomeIcon
               icon={faArrowRightToBracket}
@@ -125,7 +173,16 @@ export const DashboardRoute = () => {
               <div>Current Project</div>
               <div>Deadline</div>
             </div>
-            {isDevsLoading && <p>Loading...</p>}
+            {isDevsLoading && (
+              <div className={styles.loader}>
+                <Circles
+                  height="50"
+                  width="50"
+                  color="#2e0063"
+                  ariaLabel="loading"
+                />
+              </div>
+            )}
             {isDevsSuccess && filteredDevList.length === 0 && (
               <p>No devs founded</p>
             )}

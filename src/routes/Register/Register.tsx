@@ -2,6 +2,10 @@ import styled from "styled-components";
 import { RegisterComponent } from "../../components";
 import googleIcon from "../../assets/images/icons8-google.svg";
 import { useGoogleAuthMutation } from "../../store";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { supabase } from "../../supabase";
+import { Routes } from "../../constants";
 const RegisterRouteContainer = styled.div`
   width: 100%;
   height: 100vh;
@@ -26,9 +30,25 @@ const RegisterRouteContainer = styled.div`
 export const RegisterRoute = () => {
   const [googleLogin] = useGoogleAuthMutation();
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const { data } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === "SIGNED_IN" && session) {
+        localStorage.setItem("authenticated", "true");
+        navigate(Routes.Dashboard);
+      }
+    });
+
+    return () => data.subscription.unsubscribe();
+  }, []);
+
   return (
     <RegisterRouteContainer>
-      <button className="google-btn" onClick={googleLogin}>
+      <button
+        className="google-btn"
+        onClick={() => googleLogin(Routes.Register)}
+      >
         <img src={googleIcon} alt="google icon" />
         <span>Register with Google</span>
       </button>

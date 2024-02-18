@@ -7,13 +7,13 @@ export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fakeBaseQuery(),
   tagTypes: ["auth"],
-  endpoints: ({ mutation }) => ({
+  endpoints: ({ query, mutation }) => ({
     googleAuth: mutation({
-      queryFn: async () => {
+      queryFn: async (route) => {
         const { data, error } = await supabase.auth.signInWithOAuth({
           provider: "google",
           options: {
-            redirectTo: "http://localhost:5173/dashboard",
+            redirectTo: `http://localhost:5173${route}`,
           },
         });
 
@@ -31,7 +31,7 @@ export const authApi = createApi({
           password,
           options: {
             data: {
-              fullname,
+              full_name: fullname,
             },
             emailRedirectTo: `http://localhost:5173${Routes.Dashboard}`,
           },
@@ -58,19 +58,17 @@ export const authApi = createApi({
         return { data };
       },
     }),
-    // createDev: mutation({
-    //   queryFn: async (id) => {
-    //     const { data, error } = await supabase
-    //       .from("devs-prototype")
-    //       .insert({ id });
+    userData: query<any, void>({
+      queryFn: async () => {
+        const { data, error } = await supabase.auth.getSession();
 
-    //     if (error) {
-    //       throw error;
-    //     }
+        if (error) {
+          throw error;
+        }
 
-    //     return { data };
-    //   },
-    // }),
+        return { data };
+      },
+    }),
     signOut: mutation({
       queryFn: async () => {
         const { error } = await supabase.auth.signOut();
@@ -89,6 +87,6 @@ export const {
   useGoogleAuthMutation,
   useEmailSignupMutation,
   useEmailSigninMutation,
-  // useCreateDevMutation,
+  useUserDataQuery,
   useSignOutMutation,
 } = authApi;

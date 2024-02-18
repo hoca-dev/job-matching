@@ -4,6 +4,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { useEmailSigninMutation } from "../../store";
 import { useEffect } from "react";
 import { Routes } from "../../constants";
+import { Circles } from "react-loader-spinner";
 
 interface LoginForm {
   email: string;
@@ -19,7 +20,7 @@ export const LoginComponent = () => {
 
   const navigate = useNavigate();
 
-  const [emailSignin, { isSuccess }] = useEmailSigninMutation();
+  const [emailSignin, { isSuccess, isLoading }] = useEmailSigninMutation();
 
   useEffect(() => {
     if (isSuccess) {
@@ -71,7 +72,18 @@ export const LoginComponent = () => {
             <Link to="#" className={styles["muted-link"]}>
               Forget your password?
             </Link>
-            <button type="submit">Login</button>
+            <button type="submit" disabled={isLoading}>
+              {isLoading ? (
+                <Circles
+                  height="30"
+                  width="30"
+                  color="#2e0063"
+                  ariaLabel="loading"
+                />
+              ) : (
+                "Login"
+              )}
+            </button>
           </form>
           <p className={styles["line-text"]}>
             Don't have an accoun?{" "}

@@ -112,6 +112,8 @@
       cursor: pointer;
       transition: all 240ms ease-in-out;
       background: linear-gradient(58deg, #7c19ea 20%, #cb9fff 100%);
+      display: flex;
+      justify-content: center;
 
       &:hover {
         filter: brightness(1.03);

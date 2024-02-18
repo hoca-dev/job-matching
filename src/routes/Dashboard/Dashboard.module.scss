@@ -10,15 +10,46 @@
   .menu {
     position: relative;
     background-color: #0f0f0f;
-    padding-right: 1rem;
     min-width: 32rem;
     .logo {
-      padding: 3rem 0;
+      padding: 1.5rem 0;
       text-align: center;
       border-bottom: 0.8px solid #323232;
+      margin-bottom: 2rem;
       img {
-        height: 5.7rem;
-        padding: 1rem 2rem;
+        height: 3.7rem;
+        // padding: 1rem 2rem;
+      }
+    }
+    .user {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      &-img {
+        width: 9rem;
+        height: 9rem;
+        border-radius: 50%;
+        background-color: #8b8b8b;
+        display: grid;
+        place-items: center;
+        margin-bottom: 2rem;
+        img {
+          width: 9rem;
+          height: 9rem;
+          border-radius: 50%;
+        }
+      }
+      &-desc {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #eee;
+        h1 {
+          font-size: 2.4rem;
+          margin-bottom: 0.5rem;
+        }
+        p {
+          font-size: 1.5rem;
+        }
       }
     }
     .log-out {
@@ -72,7 +103,7 @@
         input {
           min-width: 40rem;
           font-size: 1.8rem;
-          padding: 1rem 2rem;
+          padding: 0.958rem 2rem;
           padding-left: 5.5rem;
           outline: none;
           border: none;
@@ -109,10 +140,15 @@
         }
       }
       p {
-        font-size: 4rem;
+        font-size: 3rem;
         font-family: Arial, Helvetica, sans-serif;
         letter-spacing: 0.7rem;
         margin: 2rem 8rem;
+      }
+      .loader {
+        display: grid;
+        place-items: center;
+        margin-top: 7rem;
       }
     }
   }

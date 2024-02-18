@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useEmailSignupMutation } from "../../store";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Routes } from "../../constants";
+import { Circles } from "react-loader-spinner";
 
 interface RegisterForm {
   email: string;
@@ -18,7 +19,7 @@ export const RegisterComponent = () => {
     formState: { errors },
   } = useForm<RegisterForm>();
 
-  const [emailSignUp, { isSuccess }] = useEmailSignupMutation();
+  const [emailSignUp, { isSuccess, isLoading }] = useEmailSignupMutation();
 
   useEffect(() => {
     if (isSuccess) {
@@ -72,7 +73,18 @@ export const RegisterComponent = () => {
                 Password must contain at least one letter and one number
               </span>
             )}
-            <button type="submit">Register</button>
+            <button type="submit" disabled={isLoading}>
+              {isLoading ? (
+                <Circles
+                  height="30"
+                  width="30"
+                  color="#2e0063"
+                  ariaLabel="loading"
+                />
+              ) : (
+                "Register"
+              )}
+            </button>
           </form>
           <p className={styles["line-text"]}>
             Already have an account?{" "}
