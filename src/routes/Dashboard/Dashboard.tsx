@@ -55,6 +55,10 @@ export const DashboardRoute = () => {
     }
   }, [isSuccess, isDevsSuccess]);
 
+  useEffect(() => {
+    document.title = "Dashboard";
+  });
+
   const searchHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setFilteredDevList(
       devList.filter((dev: any) =>

@@ -43,6 +43,10 @@ export const LoginRoute = () => {
     return () => data.subscription.unsubscribe();
   }, []);
 
+  useEffect(() => {
+    document.title = "Login";
+  });
+
   return (
     <LoginRouteContainer>
       <button className="google-btn" onClick={() => googleLogin(Routes.Login)}>

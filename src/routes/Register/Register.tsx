@@ -43,6 +43,10 @@ export const RegisterRoute = () => {
     return () => data.subscription.unsubscribe();
   }, []);
 
+  useEffect(() => {
+    document.title = "Register";
+  });
+
   return (
     <RegisterRouteContainer>
       <button
