@@ -13,7 +13,7 @@ export const authApi = createApi({
         const { data, error } = await supabase.auth.signInWithOAuth({
           provider: "google",
           options: {
-            redirectTo: `http://localhost:5173${route}`,
+            redirectTo: `https://job-matching-navy.vercel.app${route}`,
           },
         });
 
@@ -33,7 +33,7 @@ export const authApi = createApi({
             data: {
               full_name: fullname,
             },
-            emailRedirectTo: `http://localhost:5173${Routes.Dashboard}`,
+            emailRedirectTo: `https://job-matching-navy.vercel.app${Routes.Dashboard}`,
           },
         });
 
