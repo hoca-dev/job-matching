@@ -20,7 +20,8 @@ export const LoginComponent = () => {
 
   const navigate = useNavigate();
 
-  const [emailSignin, { isSuccess, isLoading }] = useEmailSigninMutation();
+  const [emailSignin, { isSuccess, isLoading, isError, error }] =
+    useEmailSigninMutation();
 
   useEffect(() => {
     if (isSuccess) {
@@ -28,6 +29,12 @@ export const LoginComponent = () => {
       navigate(Routes.Dashboard);
     }
   }, [isSuccess]);
+
+  useEffect(() => {
+    if (isError) {
+      alert((error as any).message);
+    }
+  }, [isError]);
 
   const loginHandler: SubmitHandler<LoginForm> = (data) => {
     emailSignin(data);

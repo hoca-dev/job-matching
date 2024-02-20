@@ -18,20 +18,20 @@ export const authApi = createApi({
         });
 
         if (error) {
-          throw error;
+          throw data;
         }
 
         return { data };
       },
     }),
     emailSignup: mutation({
-      queryFn: async ({ email, password, fullname }) => {
+      queryFn: async ({ email, password, full_name }) => {
         const { data, error } = await supabase.auth.signUp({
           email,
           password,
           options: {
             data: {
-              full_name: fullname,
+              full_name,
             },
             emailRedirectTo: `https://job-matching-navy.vercel.app${Routes.Dashboard}`,
           },
