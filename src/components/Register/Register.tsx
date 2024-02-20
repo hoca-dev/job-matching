@@ -9,7 +9,7 @@ import { Circles } from "react-loader-spinner";
 interface RegisterForm {
   email: string;
   password: string;
-  fullname: string;
+  full_name: string;
 }
 
 export const RegisterComponent = () => {
@@ -51,7 +51,7 @@ export const RegisterComponent = () => {
               type="text"
               placeholder="Full name"
               required
-              {...register("fullname")}
+              {...register("full_name")}
             />
             <input
               type="email"
