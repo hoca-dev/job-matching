@@ -1,6 +1,6 @@
 import heroImg from "../../assets/images/Group 79.png";
 import map from "../../assets/images/Group 29.png";
-import rectangle from "../../assets/images/Rectangle 33 (1).png";
+import rectangle from "../../assets/images/Rectangle 33 (2).png";
 import card1 from "../../assets/images/image_1.png";
 import card2 from "../../assets/images/Image_2.png";
 import card3 from "../../assets/images/Image_3.png";
@@ -16,14 +16,28 @@ import arrowRight from "../../assets/images/Vector (1).svg";
 import addFrame1 from "../../assets/images/Frame.png";
 import addFrame2 from "../../assets/images/Group 52.png";
 import asteriks2 from "../../assets/images/Asterisk 2.png";
-import { Button, Footer, Header, PriceCard } from "../../components";
+import frame99 from "../../assets/images/Frame 99.png";
+import frame100 from "../../assets/images/Frame 100.png";
+import frame101 from "../../assets/images/Frame 101.png";
+import frame102 from "../../assets/images/Frame 102.png";
+import {
+  Button,
+  DropdownMenu,
+  Footer,
+  GoToTopButton,
+  Header,
+  PriceCard,
+} from "../../components";
 import styles from "./Home.module.scss";
 import classNames from "classnames";
+import { OfferSection } from "../../components/OfferSection";
+import { Link } from "react-router-dom";
 
 export const HomeRoute = () => {
   return (
     <>
       <Header />
+      <DropdownMenu />
       <section className={styles.hero}>
         <img src={heroImg} alt="hero img" className={styles["hero-img"]} />
         <div className={styles["hero-content"]}>
@@ -69,8 +83,9 @@ export const HomeRoute = () => {
         <div className={styles["prices-content"]}>
           <div className={styles.desc}>
             <h1>
-              동급 경력의 한국 개발자 대비 <span>절반 이하의 비용</span> 과 월
-              단위로 팀을 구독할 수 있습니다.
+              동급 경력의 한국 개발자 대비{" "}
+              <span>절반 이하의 비용 과 월 단위로</span> 팀을 구독할 수
+              있습니다.
             </h1>
             <p>
               프로젝트의 변화에 따라 필요하신 스택에 맞게 경력별로 인원을 교체할
@@ -119,7 +134,9 @@ export const HomeRoute = () => {
             <div></div>
             <div></div>
           </div>
-          <h1>호카 서비스, 무엇이 다를까요?</h1>
+          <h1>
+            호카 서비스, <span>무엇이 다를까요?</span>
+          </h1>
           <div className={styles.gate}>
             <div></div>
             <div></div>
@@ -191,16 +208,70 @@ export const HomeRoute = () => {
               </div>
             </div>
             <p>
-              <a href="#">
+              <Link to="#">
                 <span>더 자세한 정보를 원하시면 클릭해주세요</span>
                 <img src={arrowRight} alt="arrow right icon" />
-              </a>
+              </Link>
             </p>
           </div>
         </div>
       </section>
+      <section className={styles.foreign}>
+        <p className={styles.desc}>
+          <span>여러분의 회사는 소중하니까!</span>
+        </p>
+        <h1>
+          해외 개발자 선별, <span>보다 엄격하게 진행</span>합니다!
+        </h1>
+        <div className={styles.cards}>
+          <div className={styles.card}>
+            <div className={styles.heading}>
+              <span>1</span>
+              <p>모집공고/헤드헌팅</p>
+            </div>
+            <div className={styles.body}>
+              <img src={frame99} alt="frame99" />
+            </div>
+          </div>
+          <div className={styles.card}>
+            <div className={styles.heading}>
+              <span>2</span>
+              <p>서류심사</p>
+            </div>
+            <div className={styles.body}>
+              <img src={frame100} alt="frame100" />
+            </div>
+          </div>
+          <div className={styles.card}>
+            <div className={styles.heading}>
+              <span>3</span>
+              <p>과제 테스트</p>
+            </div>
+            <div className={styles.body}>
+              <img src={frame101} alt="frame101" />
+            </div>
+          </div>
+          <div className={styles.card}>
+            <div className={styles.heading}>
+              <span>4</span>
+              <p>최종 면접 진행</p>
+            </div>
+            <div className={styles.body}>
+              <img src={frame102} alt="frame102" />
+            </div>
+          </div>
+        </div>
+        <div className={styles.link}>
+          <Link to="#">
+            <span>더 자세한 정보를 원하시면 클릭해주세요</span>
+            <img src={arrowRight} alt="arrow right icon" />
+          </Link>
+        </div>
+      </section>
       <section className={classNames(styles.advertising, "container")}>
-        <h1>업무 파악 후 즉시 투입, 합리적인 선택</h1>
+        <h1>
+          업무 파악 후 <span>즉시 투입,</span> 합리적인 선택
+        </h1>
         <div className={styles["advertising-desc"]}>
           <p>투입 즉시 전력이 되는 경력 개발자, 이젠 기다릴 필요 없어요!</p>
           <p>꼼꼼한 업무 파악 과정을 거친 후 바로 투입해요.</p>
@@ -239,12 +310,13 @@ export const HomeRoute = () => {
           <p>이젠 호카 팀과 함께</p>
           <p>보다 합리적으로, 효율적으로 고용하세요!</p>
         </h1>
-        <Button>문의하기</Button>
         <div className={styles["join-text"]}>
           <p>JOIN WITH HOCA TEAM</p>
         </div>
       </section>
+      <OfferSection />
       <Footer />
+      <GoToTopButton />
     </>
   );
 };

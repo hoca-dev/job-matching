@@ -1,19 +1,44 @@
+import { FC } from "react";
 import styled from "styled-components";
+import vectorRight from "../assets/images/Vector-right.svg";
 
-interface Props {}
+interface Props {
+  children: string;
+}
 
-export const Button = styled.button<Props>`
-  width: 18.4rem;
-  height: 6.1rem;
-  border-radius: 3.05rem;
-  background-color: #7c19ea;
-  box-shadow: 0px 0px 25px 0px #7c19ea6e;
-  color: #fff;
-  text-align: center;
-  font-family: Pretendard;
-  font-size: 2rem;
-  font-weight: 700;
+const Btn = styled.button`
+  width: 20.1rem;
+  padding: 1.8rem 2.4rem;
+  border-radius: 5rem;
+  background-color: #fff;
+  box-shadow: 0px 0px 20px 0px rgba(124, 25, 234, 0.8);
   border: none;
-  outline: none;
+  color: #2f2f2f;
+  font-size: 2rem;
+  font-family: Pretendard700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.9rem;
   cursor: pointer;
+  span {
+    width: 3rem;
+    height: 3rem;
+    background-color: #7b1ae6;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    img {
+      height: 1.4rem;
+    }
+  }
 `;
+
+export const Button: FC<Props> = ({ children }) => (
+  <Btn>
+    {children}{" "}
+    <span>
+      <img src={vectorRight} alt="vector right" />
+    </span>
+  </Btn>
+);
