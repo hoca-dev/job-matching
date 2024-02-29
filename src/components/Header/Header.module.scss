@@ -5,6 +5,15 @@
   padding: 7.5rem 11.829rem 0 11.54rem;
   position: absolute;
   width: 100%;
+  transition: all 0.5s;
+  &.fixed {
+    position: fixed;
+    top: 0;
+    padding: 3.5rem 11.829rem 3.5rem 11.54rem;
+    z-index: 99;
+    background-color: #090622;
+    border-bottom: 1px solid #555;
+  }
   .logo img {
     height: 3.7rem;
     width: 14.1rem;

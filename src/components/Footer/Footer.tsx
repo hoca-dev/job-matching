@@ -12,7 +12,7 @@ export const Footer = () => {
           <ul>
             <li>회사소개</li>
             <li>이용약관</li>
-            <li className="selected">개인정보처리방침</li>
+            <li className={styles.selected}>개인정보처리방침</li>
             <li>도움말</li>
             <li>문의하기</li>
           </ul>

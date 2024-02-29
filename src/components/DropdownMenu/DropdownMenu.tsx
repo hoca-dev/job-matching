@@ -7,11 +7,25 @@ import rightIcon from "../../assets/images/chevron-right.svg";
 import burger from "../../assets/images/Frame 114.svg";
 import { useState } from "react";
 import classNames from "classnames";
+import { useScrollToTop } from "../../hooks";
 
 export const DropdownMenu = () => {
   const [isMenuShown, setIsMenuShown] = useState(false);
+  const { isVisible } = useScrollToTop();
+
   return (
-    <div className={styles.dropdown}>
+    <div className={classNames(styles.dropdown, { [styles.solid]: isVisible })}>
+      <Link className={styles.link} to={Routes.Home}>
+        <img src={logo} alt="logo" />
+      </Link>
+      <button
+        className={classNames(styles["toggle-btn"], {
+          [styles.hidden]: isMenuShown,
+        })}
+        onClick={() => setIsMenuShown(true)}
+      >
+        <img src={burger} alt="burger" />
+      </button>
       <header
         className={classNames(styles.header, { [styles.hidden]: !isMenuShown })}
       >
@@ -48,18 +62,11 @@ export const DropdownMenu = () => {
             </li>
           </ul>
         </nav>
+
         <div className={styles["request-btn"]}>
           <button>개발자 채용 의뢰하기</button>
         </div>
       </header>
-      <button
-        className={classNames(styles["toggle-btn"], {
-          [styles.hidden]: isMenuShown,
-        })}
-        onClick={() => setIsMenuShown(true)}
-      >
-        <img src={burger} alt="burger" />
-      </button>
     </div>
   );
 };

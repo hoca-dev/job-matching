@@ -19,7 +19,7 @@
         align-items: center;
         color: #424242;
         font-size: 1.4rem;
-        font-weight: 400;
+        font-family: Pretendard400;
         padding: 0 1.36rem;
         border-right: 1px solid #d4d4d4;
         &:first-child {
@@ -31,13 +31,34 @@
         }
       }
       .selected {
-        font-weight: 700;
+        font-family: Pretendard700;
       }
     }
     .desc p {
       color: #424242;
       font-size: 1.2rem;
-      font-weight: 400;
+      font-family: Pretendard400;
+    }
+  }
+}
+
+@media (max-width: 89.99em) {
+  .footer {
+    justify-content: center;
+    &-logo {
+      display: none;
+    }
+    &-content {
+      .nav ul {
+        justify-content: center;
+      }
+      .desc p {
+        text-align: center;
+        &:last-child {
+          position: relative;
+          bottom: -3.5rem;
+        }
+      }
     }
   }
 }

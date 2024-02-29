@@ -80,10 +80,14 @@ export const HomeRoute = () => {
           <img src={sumSad} alt="summertime sadness" />
           <img src={party} alt="sun" />
         </div>
+        <div className={classNames(styles["front-img"], styles.second)}>
+          <img src={sumSad} alt="summertime sadness" />
+          <img src={party} alt="sun" />
+        </div>
         <div className={styles["prices-content"]}>
           <div className={styles.desc}>
             <h1>
-              동급 경력의 한국 개발자 대비{" "}
+              동급 경력의 한국 개발자 대비 <br />
               <span>절반 이하의 비용 과 월 단위로</span> 팀을 구독할 수
               있습니다.
             </h1>
@@ -91,7 +95,9 @@ export const HomeRoute = () => {
               프로젝트의 변화에 따라 필요하신 스택에 맞게 경력별로 인원을 교체할
               수 있습니다. 다양한 비용 옵션을 선택하고 활용해보세요!
             </p>
-            <Button>자세히보기</Button>
+            <Link to="#" className={styles.link}>
+              <Button>자세히보기</Button>
+            </Link>
           </div>
           <div className={styles["prices-list"]}>
             <ul>
@@ -124,6 +130,11 @@ export const HomeRoute = () => {
                 PM 서비스는 월 39만원, 통역 서비스는 월 29만 원이 추가됩니다.
               </p>
               <p>통역서비스는 하루에 30분 까지의 통역시간이 부여됩니다.</p>
+            </div>
+            <div className={styles["link-mobile"]}>
+              <Link to="#">
+                <Button>자세히보기</Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -207,12 +218,19 @@ export const HomeRoute = () => {
                 </ul>
               </div>
             </div>
-            <p>
-              <Link to="#">
-                <span>더 자세한 정보를 원하시면 클릭해주세요</span>
-                <img src={arrowRight} alt="arrow right icon" />
-              </Link>
-            </p>
+            <Link
+              to="#"
+              className={classNames(styles.link, styles["link-desktop"])}
+            >
+              <span>더 자세한 정보를 원하시면 클릭해주세요</span>
+              <img src={arrowRight} alt="arrow right icon" />
+            </Link>
+            <Link
+              to="#"
+              className={classNames(styles.link, styles["link-mobile"])}
+            >
+              <Button>자세히 보기</Button>
+            </Link>
           </div>
         </div>
       </section>

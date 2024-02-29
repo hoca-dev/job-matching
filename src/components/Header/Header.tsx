@@ -3,10 +3,14 @@ import logo from "../../assets/images/logo.svg";
 import styles from "./Header.module.scss";
 import { Link } from "react-router-dom";
 import { Routes } from "../../constants";
+import { useScrollToTop } from "../../hooks";
 
 export const Header = () => {
+  const { isVisible } = useScrollToTop();
   return (
-    <header className={styles.header}>
+    <header
+      className={classNames(styles.header, { [styles.fixed]: isVisible })}
+    >
       <div className={styles.logo}>
         <img src={logo} alt="logo" />
       </div>
