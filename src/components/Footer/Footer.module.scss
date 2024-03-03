@@ -62,3 +62,12 @@
     }
   }
 }
+
+@media (max-width: 47.94em) {
+  .footer {
+    padding: 3.3rem 4rem 3.7rem 4rem;
+    &-content .desc {
+      padding: 0 7.5rem;
+    }
+  }
+}

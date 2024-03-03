@@ -192,6 +192,7 @@
           color: #fff;
           font-size: 2rem;
           font-weight: 500;
+          margin-right: 26rem;
           &:last-child {
             background-image: linear-gradient(
               262deg,
@@ -692,6 +693,8 @@
         margin-bottom: 6.8rem;
         p {
           text-align: center;
+          margin: 0 auto !important;
+          padding: 0 5rem;
         }
       }
       .link-mobile {
@@ -826,6 +829,179 @@
           }
         }
       }
+    }
+  }
+}
+
+@media (max-width: 47.94em) {
+  .hero {
+    &-content {
+      bottom: 49rem !important;
+      width: 100%;
+      padding: 0 5rem;
+      h1 {
+        width: 100%;
+        font-size: 3.2rem !important;
+      }
+      p {
+        width: 100%;
+      }
+    }
+  }
+  .info {
+    margin-bottom: 95rem;
+    .back-img img {
+      &:first-child {
+        height: 50rem;
+      }
+    }
+    &-content {
+      top: 29rem;
+      h1 {
+        font-size: 3rem;
+        padding: 0 5rem;
+      }
+      .desc p {
+        font-size: 1.75rem;
+      }
+      .cards {
+        padding: 0 9rem;
+        grid-template-columns: 1fr;
+        img {
+          height: 25rem;
+        }
+      }
+    }
+  }
+  .prices {
+    &-content {
+      .desc {
+        h1 {
+          font-size: 3.1rem !important;
+          padding: 0 4rem;
+        }
+      }
+      .prices-list ul {
+        width: 39.5rem !important;
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+  .advantages {
+    margin-bottom: 120rem;
+    &-heading {
+      grid-template-columns: 1fr;
+      margin-bottom: 3rem;
+      .gate {
+        display: none;
+      }
+      h1 {
+        font-size: 3.1rem;
+      }
+    }
+    &-desc {
+      margin-bottom: 0;
+      p {
+        font-size: 2rem;
+      }
+    }
+    &-content {
+      background: none;
+      .comparison {
+        .link-mobile {
+          margin-top: 45rem;
+        }
+        .arrow-bottom {
+          display: none;
+        }
+        &-card {
+          display: block;
+          background-color: inherit;
+          border: none;
+          margin-bottom: 40rem !important;
+          .points {
+            justify-content: center;
+            gap: 1.2rem;
+          }
+          &.others {
+            padding: 0 !important;
+            .heading {
+              h2 {
+                width: 22.71rem;
+                height: 4.9rem;
+                border-radius: 7.14rem;
+                background-color: #fff;
+                margin: 0 auto;
+                font-size: 1.71rem !important;
+                display: grid;
+                place-items: center;
+                margin-bottom: 4.71rem;
+              }
+              img {
+                height: 26.65rem !important;
+                left: 50%;
+                transform: translateX(-50%);
+                margin-bottom: 4rem;
+              }
+            }
+            .points ul li {
+              border: none;
+            }
+          }
+          &.hoca {
+            box-shadow: none;
+            .heading {
+              h2 {
+                display: grid;
+                place-items: center;
+                height: 4.9rem;
+                border-radius: 7.14rem;
+                background-color: #7c19ea;
+                font-size: 1.71rem !important;
+                width: 16.42rem;
+                color: #fff;
+                margin: 0 auto;
+                margin-bottom: 4.71rem;
+              }
+              img {
+                height: 28.57rem !important;
+                left: 50%;
+                margin-bottom: 4rem;
+                transform: translateX(-50%);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .foreign {
+    h1 {
+      font-size: 3.2rem;
+    }
+  }
+  .advertising {
+    margin-bottom: 20rem !important;
+    h1 {
+      font-size: 3.2rem;
+      margin: 0 8rem 3rem 8rem;
+    }
+    &-desc p {
+      font-size: 1.9rem !important;
+    }
+    &-card {
+      max-width: 40rem;
+    }
+  }
+  .join {
+    padding-bottom: 20rem;
+    h1 {
+      font-size: 3.2rem;
+      margin: 0 7rem 8rem 7rem;
+    }
+    &-text p {
+      font-size: 5.71rem;
+      line-height: 6.2rem;
     }
   }
 }

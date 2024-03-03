@@ -22,3 +22,18 @@
     cursor: pointer;
   }
 }
+
+@media (max-width: 47.94em) {
+  .offer {
+    h1 {
+      font-size: 3.2rem;
+      margin: 0 4.6rem 4.2rem 4.6rem;
+    }
+    button {
+      width: 37.28rem;
+      padding: 2.57rem 6.85rem;
+      border-radius: 4.29rem;
+      font-size: 2.8rem;
+    }
+  }
+}
