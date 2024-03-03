@@ -13,6 +13,8 @@ export const DropdownMenu = () => {
   const [isMenuShown, setIsMenuShown] = useState(false);
   const { isVisible } = useScrollToTop();
 
+  console.log(isVisible);
+
   return (
     <div className={classNames(styles.dropdown, { [styles.solid]: isVisible })}>
       <Link className={styles.link} to={Routes.Home}>
