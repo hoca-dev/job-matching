@@ -42,8 +42,6 @@ export const DashboardRoute = () => {
 
   const { data: user } = useUserDataQuery();
 
-  console.log(user);
-
   const [filteredDevList, setFilteredDevList] = useState([]);
 
   useEffect(() => {
