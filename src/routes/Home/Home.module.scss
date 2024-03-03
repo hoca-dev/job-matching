@@ -835,8 +835,9 @@
 
 @media (max-width: 47.94em) {
   .hero {
+    margin-bottom: -10rem;
     &-content {
-      bottom: 49rem !important;
+      bottom: 50rem !important;
       width: 100%;
       padding: 0 5rem;
       h1 {
