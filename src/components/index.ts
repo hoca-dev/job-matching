@@ -6,3 +6,5 @@ export * from "./Login";
 export * from "./Register";
 export * from "./GoToTopButton";
 export * from "./DropdownMenu";
+export * from "./AdvantagesContent";
+export * from "./OfferSection";

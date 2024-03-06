@@ -15,6 +15,7 @@ const BtnContainer = styled.div`
   position: fixed;
   bottom: 4.7rem;
   right: 5.5rem;
+  z-index: 9;
 `;
 
 export const GoToTopButton = () => {

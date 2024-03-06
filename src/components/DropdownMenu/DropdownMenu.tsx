@@ -26,7 +26,7 @@ export const DropdownMenu = () => {
       >
         <img src={burger} alt="burger" />
       </button>
-      <header
+      <div
         className={classNames(styles.header, { [styles.hidden]: !isMenuShown })}
       >
         <div className={styles.logo}>
@@ -40,7 +40,7 @@ export const DropdownMenu = () => {
         <nav className={styles.nav}>
           <ul>
             <li>
-              <Link to="#">
+              <Link to={Routes.Service}>
                 서비스 소개
                 <img src={rightIcon} alt="right icon" />
               </Link>
@@ -66,7 +66,7 @@ export const DropdownMenu = () => {
         <div className={styles["request-btn"]}>
           <button>개발자 채용 의뢰하기</button>
         </div>
-      </header>
+      </div>
     </div>
   );
 };

@@ -26,8 +26,11 @@
 @media (max-width: 47.94em) {
   .offer {
     h1 {
-      font-size: 3.2rem;
-      margin: 0 4.6rem 4.2rem 4.6rem;
+      font-size: 3rem;
+      margin: 0 7rem 4.2rem 7rem;
+      br {
+        display: none;
+      }
     }
     button {
       width: 37.28rem;
