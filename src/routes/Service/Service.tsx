@@ -32,8 +32,11 @@ import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import { useScrollToTop } from "../../hooks";
 
 export const ServiceRoute = () => {
+  const { scrollToTop } = useScrollToTop();
+
   const pricesSectionRef = useRef(null);
   const swiperRef = useRef(null);
   const [isPricesSectionIntersection, setIsPricesSectionIntersection] =
@@ -41,6 +44,7 @@ export const ServiceRoute = () => {
 
   useEffect(() => {
     document.title = "Service";
+    scrollToTop();
 
     const options = {
       root: null,
@@ -102,7 +106,9 @@ export const ServiceRoute = () => {
             <p>
               우즈베키스탄에 두 개의 지점과 베트남에 한 개의 지점을
               운영하고있으며,
+              <br />
               <span>이들의 뛰어난 영어실력과 풍부한 경력을 활용하여</span>{" "}
+              <br />
               한국의 회사에게 필요한 서비스를 제공합니다.
             </p>
           </div>
@@ -199,12 +205,20 @@ export const ServiceRoute = () => {
               </Swiper>
             </div>
             <div className={styles["list-desc"]}>
-              <p>
-                팀으로서 3명 이상일 경우 PM 서비스와 통역 서비스를 추가하실 수
-                있습니다. PM 서비스는 월 39만원, 통역 서비스는 월 29만 원이
-                추가됩니다.
-              </p>
-              <p>통역서비스는 하루에 30분 까지의 통역시간이 부여됩니다.</p>
+              <div className={styles.desktop}>
+                <p>
+                  팀으로서 3명 이상일 경우 PM 서비스와 통역 서비스를 추가하실 수
+                  있습니다. PM 서비스는 월 39만원, 통역 서비스는 월 29만 원이
+                  추가됩니다.
+                </p>
+                <p>통역서비스는 하루에 30분 까지의 통역시간이 부여됩니다.</p>
+              </div>
+              <div className={styles.mobile}>
+                <p>
+                  프로젝트의 변화에 따라 경력별로 인원을 교체할 수 있습니다.
+                </p>
+                <p>다양한 비용 옵션을 선택하고 활용해보세요!</p>
+              </div>
             </div>
             <div className={styles["link-mobile"]}>
               <Link to="#">

@@ -169,7 +169,7 @@
     }
   }
   h1.heading {
-    margin-bottom: 2.777rem;
+    margin-bottom: 8.6rem;
     br {
       &:last-child {
         display: none;
@@ -181,19 +181,14 @@
     font-size: 2rem;
     text-align: center;
     margin-bottom: 6.5rem;
-
-    &.mobile {
-      display: none;
+    span {
+      color: #915bff;
     }
   }
   &-link {
     display: grid;
     place-items: center;
     margin-bottom: 8.6rem;
-
-    &.mobile {
-      display: none;
-    }
   }
   &-list {
     display: flex;
@@ -201,6 +196,7 @@
     align-items: center;
     gap: 2.36rem;
     padding: 0 5rem;
+    margin-bottom: 8.2rem;
   }
 }
 
@@ -299,11 +295,7 @@
     }
   }
   .animation-projects {
-    left: -73px;
-    img {
-      width: 14.57rem;
-      height: 21.14rem;
-    }
+    left: -90px;
   }
   .technology {
     margin-bottom: -14.28rem;
@@ -316,6 +308,9 @@
     margin-bottom: -16.28rem;
     h1.heading {
       margin-bottom: 0;
+      br {
+        display: none;
+      }
     }
   }
   .service {
@@ -330,7 +325,10 @@
   .projects {
     margin-bottom: 18.71rem;
     h1.heading {
+      margin: 0 auto;
       margin-bottom: 6.5rem;
+      width: 340px;
+      span br,
       br {
         display: none;
       }
@@ -352,6 +350,16 @@
       width: 20rem;
       display: grid;
       grid-template-columns: 1fr;
+    }
+  }
+}
+
+@media (max-width: 29.37em) {
+  .animation-projects {
+    left: -73px;
+    img {
+      width: 102px;
+      height: 148px;
     }
   }
 }

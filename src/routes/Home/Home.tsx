@@ -33,9 +33,16 @@ import classNames from "classnames";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Scrollbar } from "swiper/modules";
 import "swiper/css";
-// import "swiper/css/scrollbar";
+import { useEffect } from "react";
+import { useScrollToTop } from "../../hooks";
 
 export const HomeRoute = () => {
+  const { scrollToTop } = useScrollToTop();
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
+
   return (
     <>
       <div className={styles["header-hero"]}>
@@ -112,7 +119,7 @@ export const HomeRoute = () => {
         <p className={styles.desc}>Process for service</p>
         <h1 className={styles.heading}>
           HOCA는 스타트업의 문제를 함께 고민하여
-          {/* <br /> */}
+          <br />
           최적의 솔루션을 제시합니다.
         </h1>
       </section>
@@ -131,7 +138,11 @@ export const HomeRoute = () => {
         <h1 className={styles.heading}>
           HOCA는 스타트업의 문제를 함께 고민하고
           <br />
-          <span>최적의 결과물 도출 방안</span>을 제시합니다.
+          <span>
+            최적의 결과물 도출
+            <br /> 방안
+          </span>
+          을 제시합니다.
         </h1>
         <Swiper
           className={styles["animation-projects"]}
@@ -206,17 +217,6 @@ export const HomeRoute = () => {
           <span>절반 이하의 비용과 월 단위로</span> 팀을
           <br /> 구독할 수 있어요!
         </h1>
-        <p className={classNames(styles["prices-desc"], styles.desktop)}>
-          프로젝트의 변화에 따라 경력별로 인원을 교체할 수 있습니다.
-          <br />
-          다양한 비용 옵션을 선택하고 활용해보세요!
-        </p>
-        <Link
-          to={"#"}
-          className={classNames(styles["prices-link"], styles.desktop)}
-        >
-          <Button>자세히 보기</Button>
-        </Link>
         <ul className={styles["prices-list"]}>
           <PriceCard heading="개발자 신입" level="Junior" price={90} />
           <PriceCard
@@ -238,15 +238,12 @@ export const HomeRoute = () => {
             src={party2}
           />
         </ul>
-        <p className={classNames(styles["prices-desc"], styles.mobile)}>
+        <p className={classNames(styles["prices-desc"])}>
           프로젝트의 변화에 따라 경력별로 인원을 교체할 수 있습니다.
           <br />
-          다양한 비용 옵션을 선택하고 활용해보세요!
+          <span>다양한 비용 옵션을 선택하고 활용해보세요!</span>
         </p>
-        <Link
-          to={"#"}
-          className={classNames(styles["prices-link"], styles.mobile)}
-        >
+        <Link to={"#"} className={classNames(styles["prices-link"])}>
           <Button>자세히 보기</Button>
         </Link>
       </section>

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styles from "./DropdownMenu.module.scss";
 import { Routes } from "../../constants";
 import logo from "../../assets/images/logo.svg";
@@ -15,9 +15,9 @@ export const DropdownMenu = () => {
 
   return (
     <div className={classNames(styles.dropdown, { [styles.solid]: isVisible })}>
-      <Link className={styles.link} to={Routes.Home}>
+      <NavLink className={styles.link} to={Routes.Home}>
         <img src={logo} alt="logo" />
-      </Link>
+      </NavLink>
       <button
         className={classNames(styles["toggle-btn"], {
           [styles.hidden]: isMenuShown,
@@ -30,9 +30,9 @@ export const DropdownMenu = () => {
         className={classNames(styles.header, { [styles.hidden]: !isMenuShown })}
       >
         <div className={styles.logo}>
-          <Link to={Routes.Home}>
+          <NavLink to={Routes.Home}>
             <img src={logo} alt="logo" />
-          </Link>
+          </NavLink>
           <button onClick={() => setIsMenuShown(false)}>
             <img src={exitIcon} alt="exit icon" />
           </button>
@@ -40,25 +40,25 @@ export const DropdownMenu = () => {
         <nav className={styles.nav}>
           <ul>
             <li>
-              <Link to={Routes.Service}>
+              <NavLink to={Routes.Service}>
                 서비스 소개
                 <img src={rightIcon} alt="right icon" />
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="#">
+              <NavLink to="#">
                 가격정책 <img src={rightIcon} alt="right icon" />
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="#">
+              <NavLink to="#">
                 고객후기 <img src={rightIcon} alt="right icon" />
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="#">
+              <NavLink to="#">
                 HOCA 팀 <img src={rightIcon} alt="right icon" />
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </nav>
