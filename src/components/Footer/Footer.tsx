@@ -1,11 +1,21 @@
+// import { useRef } from "react";
 import logoDark from "../../assets/images/logo 4.svg";
 import styles from "./Footer.module.scss";
+// import { useIntersection } from "../../hooks";
+// import classNames from "classnames";
+import { Routes } from "../../constants";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
+  // const footerRef = useRef();
+  // const isFooterInView = useIntersection(footerRef);
+
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} /*ref={footerRef}*/>
       <div className={styles["footer-logo"]}>
-        <img src={logoDark} alt="logo dark" />
+        <Link to={Routes.Home}>
+          <img src={logoDark} alt="logo dark" />
+        </Link>
       </div>
       <div className={styles["footer-content"]}>
         <nav className={styles.nav}>

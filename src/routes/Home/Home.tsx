@@ -34,82 +34,25 @@ import classNames from "classnames";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Scrollbar } from "swiper/modules";
 import "swiper/css";
-import { useEffect, useRef, useState } from "react";
-import { useScrollToTop } from "../../hooks";
-
-const options = {
-  root: null,
-  rootMargin: "0px",
-  threshold: 0.4,
-};
+import { useEffect, useRef } from "react";
+import { useIntersection, useScrollToTop } from "../../hooks";
 
 export const HomeRoute = () => {
   const { scrollToTop } = useScrollToTop();
-  const section = useRef();
-  const [isProcessSectionIntersection, setIsProcessSectionIntersection] =
-    useState(false);
+  const heroSectionRef = useRef();
+  const isHeroSectionInView = useIntersection(heroSectionRef);
 
-  const heroSection = useRef();
-  const [isHeroSectionIntersection, setIsHeroSectionIntersection] =
-    useState(false);
+  const processSectionRef = useRef();
+  const isProcessSectionInView = useIntersection(processSectionRef);
 
-  const serviceSection = useRef();
-  const [isServiceSectionIntersection, setIsServiceSectionIntersection] =
-    useState(false);
+  const serviceSectionRef = useRef();
+  const isServiceSectionInView = useIntersection(serviceSectionRef);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsProcessSectionIntersection(true);
-      }
-    }, options);
+  const valueSectionRef = useRef();
+  const isValueSectionInView = useIntersection(valueSectionRef);
 
-    if (section.current) {
-      observer.observe(section.current);
-    }
-
-    return () => {
-      if (section.current) {
-        observer.unobserve(section.current);
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsHeroSectionIntersection(true);
-      }
-    }, options);
-
-    if (heroSection.current) {
-      observer.observe(heroSection.current);
-    }
-
-    return () => {
-      if (heroSection.current) {
-        observer.unobserve(heroSection.current);
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsServiceSectionIntersection(true);
-      }
-    }, options);
-
-    if (serviceSection.current) {
-      observer.observe(serviceSection.current);
-    }
-
-    return () => {
-      if (serviceSection.current) {
-        observer.unobserve(serviceSection.current);
-      }
-    };
-  }, []);
+  const pricesSectionRef = useRef();
+  const isPricesSectionInView = useIntersection(pricesSectionRef);
 
   useEffect(() => {
     scrollToTop();
@@ -119,10 +62,10 @@ export const HomeRoute = () => {
     <>
       <div className={styles["header-hero"]}>
         <Header />
-        <section className={styles.hero} ref={heroSection}>
+        <section className={styles.hero} ref={heroSectionRef}>
           <div
             className={classNames(styles.animation, {
-              [styles.animate]: isHeroSectionIntersection,
+              [styles.animate]: isHeroSectionInView,
             })}
           >
             <p>HOCA development</p>
@@ -194,10 +137,10 @@ export const HomeRoute = () => {
           </SwiperSlide>
         </Swiper>
       </section>
-      <section className={styles.process} ref={section}>
+      <section className={styles.process} ref={processSectionRef}>
         <div
           className={classNames(styles.animation, {
-            [styles.animate]: isProcessSectionIntersection,
+            [styles.animate]: isProcessSectionInView,
           })}
         >
           <div className={styles.content}>
@@ -211,10 +154,10 @@ export const HomeRoute = () => {
           <img src={process} alt="process back" />
         </div>
       </section>
-      <section className={styles.service} ref={serviceSection}>
+      <section className={styles.service} ref={serviceSectionRef}>
         <div
           className={classNames(styles.animation, {
-            [styles.animate]: isServiceSectionIntersection,
+            [styles.animate]: isServiceSectionInView,
           })}
         >
           <p className={styles.desc}>Specialized Service</p>
@@ -277,69 +220,81 @@ export const HomeRoute = () => {
           </SwiperSlide>
         </Swiper>
       </section>
-      <section className={styles.value}>
-        <p className={styles.desc}>Our value</p>
-        <h1 className={styles.heading}>
-          외주회사로서가 아닌,{" "}
-          <span>
-            같은 길을 걷는
-            <br /> 스타트업
-          </span>
-          으로서
-          <br />그 긴 여정을 여러분과 함께합니다.
-        </h1>
-        <div className={styles.frame}>
-          <iframe
-            src="https://www.youtube.com/embed/ZRfjFZU-u1A"
-            allowFullScreen
-          ></iframe>
+      <section className={styles.value} ref={valueSectionRef}>
+        <div
+          className={classNames(styles.animation, {
+            [styles.animate]: isValueSectionInView,
+          })}
+        >
+          <p className={styles.desc}>Our value</p>
+          <h1 className={styles.heading}>
+            외주회사로서가 아닌,{" "}
+            <span>
+              같은 길을 걷는
+              <br /> 스타트업
+            </span>
+            으로서
+            <br />그 긴 여정을 여러분과 함께합니다.
+          </h1>
+          <div className={styles.frame}>
+            <iframe
+              src="https://www.youtube.com/embed/ZRfjFZU-u1A"
+              allowFullScreen
+            ></iframe>
+          </div>
         </div>
       </section>
-      <section className={styles.prices}>
-        <div className={styles["front-img"]}>
-          <img src={sumSad} alt="summertime sadness" />
-          <img src={party} alt="sun" />
+      <section className={styles.prices} ref={pricesSectionRef}>
+        <div
+          className={classNames(styles.animation, {
+            [styles.animate]: isPricesSectionInView,
+          })}
+        >
+          <div className={styles["front-img"]}>
+            <img src={sumSad} alt="summertime sadness" />
+            <img src={party} alt="sun" />
+          </div>
+          <div className={classNames(styles["front-img"], styles.second)}>
+            <img src={sumSad} alt="summertime sadness" />
+            <img src={party} alt="sun" />
+          </div>
+          <p className={styles.desc}>Our Service</p>
+          <h1 className={styles.heading}>
+            동급 경력의 한국 개발자 대비
+            <br />
+            <span>절반 이하의 비용과 월 단위로</span> 팀을
+            <br /> 구독할 수 있어요!
+          </h1>
+          <ul className={styles["prices-list"]}>
+            <PriceCard heading="개발자 신입" level="Junior" price={90} />
+            <PriceCard
+              heading="경력 2~3년"
+              level="Junior"
+              price={150}
+              src={sumSad2}
+            />
+            <PriceCard
+              heading="경력 4~7년"
+              level="Senior"
+              price={230}
+              src={asteriks}
+            />
+            <PriceCard
+              heading="경력 8년 이상"
+              level="Senior"
+              price={290}
+              src={party2}
+            />
+          </ul>
+          <p className={classNames(styles["prices-desc"])}>
+            프로젝트의 변화에 따라 경력별로 인원을 교체할 수 있습니다.
+            <br />
+            <span>다양한 비용 옵션을 선택하고 활용해보세요!</span>
+          </p>
+          <Link to={"#"} className={classNames(styles["prices-link"])}>
+            <Button>자세히 보기</Button>
+          </Link>
         </div>
-        <div className={classNames(styles["front-img"], styles.second)}>
-          <img src={sumSad} alt="summertime sadness" />
-          <img src={party} alt="sun" />
-        </div>
-        <p className={styles.desc}>Our Service</p>
-        <h1 className={styles.heading}>
-          동급 경력의 한국 개발자 대비
-          <br />
-          <span>절반 이하의 비용과 월 단위로</span> 팀을
-          <br /> 구독할 수 있어요!
-        </h1>
-        <ul className={styles["prices-list"]}>
-          <PriceCard heading="개발자 신입" level="Junior" price={90} />
-          <PriceCard
-            heading="경력 2~3년"
-            level="Junior"
-            price={150}
-            src={sumSad2}
-          />
-          <PriceCard
-            heading="경력 4~7년"
-            level="Senior"
-            price={230}
-            src={asteriks}
-          />
-          <PriceCard
-            heading="경력 8년 이상"
-            level="Senior"
-            price={290}
-            src={party2}
-          />
-        </ul>
-        <p className={classNames(styles["prices-desc"])}>
-          프로젝트의 변화에 따라 경력별로 인원을 교체할 수 있습니다.
-          <br />
-          <span>다양한 비용 옵션을 선택하고 활용해보세요!</span>
-        </p>
-        <Link to={"#"} className={classNames(styles["prices-link"])}>
-          <Button>자세히 보기</Button>
-        </Link>
       </section>
       <OfferSection />
       <Footer />

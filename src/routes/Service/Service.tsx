@@ -29,55 +29,30 @@ import styles from "./Service.module.scss";
 import classNames from "classnames";
 import { OfferSection } from "../../components/OfferSection";
 import { Link } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-import { useScrollToTop } from "../../hooks";
+import { useIntersection, useScrollToTop } from "../../hooks";
 
 export const ServiceRoute = () => {
   const { scrollToTop } = useScrollToTop();
 
   const pricesSectionRef = useRef(null);
   const swiperRef = useRef(null);
-  const [isPricesSectionIntersection, setIsPricesSectionIntersection] =
-    useState(false);
+  const isPricesSectionInView = useIntersection(swiperRef, 1);
 
   useEffect(() => {
     document.title = "Service";
     scrollToTop();
-
-    const options = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 1,
-    };
-
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsPricesSectionIntersection(true);
-      } else {
-        setIsPricesSectionIntersection(false);
-      }
-    }, options);
-
-    if (pricesSectionRef.current) {
-      observer.observe(pricesSectionRef.current);
-    }
-
-    return () => {
-      if (pricesSectionRef.current) {
-        observer.unobserve(pricesSectionRef.current);
-      }
-    };
   }, []);
 
   useEffect(() => {
-    if (isPricesSectionIntersection) {
+    if (isPricesSectionInView) {
       swiperRef.current.swiper.autoplay.start();
     } else {
       swiperRef.current.swiper.autoplay.stop();
     }
-  }, [isPricesSectionIntersection]);
+  }, [isPricesSectionInView]);
 
   return (
     <>

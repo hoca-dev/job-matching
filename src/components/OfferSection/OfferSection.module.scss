@@ -1,3 +1,14 @@
+.animation {
+  opacity: 0;
+  transform: translateY(40%);
+  transition: all 0.5s;
+  overflow-y: hidden;
+  &.animate {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .offer {
   padding: 11.3rem 0;
   background-color: #7c19ea;
