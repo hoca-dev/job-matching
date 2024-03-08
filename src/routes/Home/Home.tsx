@@ -28,16 +28,88 @@ import sumSad2 from "../../assets/images/Summertime Sadness (2).png";
 import party2 from "../../assets/images/Party (1).png";
 import sumSad from "../../assets/images/Summertime Sadness.png";
 import party from "../../assets/images/Party.png";
+import process from "../../assets/images/Group 101.png";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Scrollbar } from "swiper/modules";
 import "swiper/css";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useScrollToTop } from "../../hooks";
+
+const options = {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.4,
+};
 
 export const HomeRoute = () => {
   const { scrollToTop } = useScrollToTop();
+  const section = useRef();
+  const [isProcessSectionIntersection, setIsProcessSectionIntersection] =
+    useState(false);
+
+  const heroSection = useRef();
+  const [isHeroSectionIntersection, setIsHeroSectionIntersection] =
+    useState(false);
+
+  const serviceSection = useRef();
+  const [isServiceSectionIntersection, setIsServiceSectionIntersection] =
+    useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsProcessSectionIntersection(true);
+      }
+    }, options);
+
+    if (section.current) {
+      observer.observe(section.current);
+    }
+
+    return () => {
+      if (section.current) {
+        observer.unobserve(section.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsHeroSectionIntersection(true);
+      }
+    }, options);
+
+    if (heroSection.current) {
+      observer.observe(heroSection.current);
+    }
+
+    return () => {
+      if (heroSection.current) {
+        observer.unobserve(heroSection.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsServiceSectionIntersection(true);
+      }
+    }, options);
+
+    if (serviceSection.current) {
+      observer.observe(serviceSection.current);
+    }
+
+    return () => {
+      if (serviceSection.current) {
+        observer.unobserve(serviceSection.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     scrollToTop();
@@ -47,20 +119,27 @@ export const HomeRoute = () => {
     <>
       <div className={styles["header-hero"]}>
         <Header />
-        <section className={styles.hero}>
-          <p>HOCA development</p>
-          <h1 className={styles.heading}>
-            호카는 웹/모바일 앱 솔루션과 함께,
-            <br /> 스타트업 대표들의 <span>경쟁력을 한 단계 높혀드립니다.</span>
-          </h1>
-          <div className={styles["hero-cards"]}>
-            <img src={frame28} alt="frame28" />
-            <img src={frame30} alt="frame30" />
-            <img src={frame31} alt="frame31" />
+        <section className={styles.hero} ref={heroSection}>
+          <div
+            className={classNames(styles.animation, {
+              [styles.animate]: isHeroSectionIntersection,
+            })}
+          >
+            <p>HOCA development</p>
+            <h1 className={styles.heading}>
+              호카는 웹/모바일 앱 솔루션과 함께,
+              <br /> 스타트업 대표들의{" "}
+              <span>경쟁력을 한 단계 높혀드립니다.</span>
+            </h1>
+            <div className={styles["hero-cards"]}>
+              <img src={frame28} alt="frame28" />
+              <img src={frame30} alt="frame30" />
+              <img src={frame31} alt="frame31" />
+            </div>
+            <Link to={"/"} className={styles["hero-link"]}>
+              <Button>프로젝트 문의</Button>
+            </Link>
           </div>
-          <Link to={"/"} className={styles["hero-link"]}>
-            <Button>프로젝트 문의</Button>
-          </Link>
         </section>
       </div>
       <section className={styles.technology}>
@@ -115,23 +194,38 @@ export const HomeRoute = () => {
           </SwiperSlide>
         </Swiper>
       </section>
-      <section className={styles.process}>
-        <p className={styles.desc}>Process for service</p>
-        <h1 className={styles.heading}>
-          HOCA는 스타트업의 문제를 함께 고민하여
-          <br />
-          최적의 솔루션을 제시합니다.
-        </h1>
+      <section className={styles.process} ref={section}>
+        <div
+          className={classNames(styles.animation, {
+            [styles.animate]: isProcessSectionIntersection,
+          })}
+        >
+          <div className={styles.content}>
+            <p className={styles.desc}>Process for service</p>
+            <h1 className={styles.heading}>
+              HOCA는 스타트업의 문제를 함께 고민하여
+              <br />
+              최적의 솔루션을 제시합니다.
+            </h1>
+          </div>
+          <img src={process} alt="process back" />
+        </div>
       </section>
-      <section className={styles.service}>
-        <p className={styles.desc}>Specialized Service</p>
-        <h1 className={styles.heading}>
-          개발자와 민사전문변호사가 함께
-          <br /> 창업하여 전문가 직역에서
-          <br />
-          <span>새로운 수익창출 방식을 시도</span>하고 있습니다.
-        </h1>
-        <AdvantagesContent />
+      <section className={styles.service} ref={serviceSection}>
+        <div
+          className={classNames(styles.animation, {
+            [styles.animate]: isServiceSectionIntersection,
+          })}
+        >
+          <p className={styles.desc}>Specialized Service</p>
+          <h1 className={styles.heading}>
+            개발자와 민사전문변호사가 함께
+            <br /> 창업하여 전문가 직역에서
+            <br />
+            <span>새로운 수익창출 방식을 시도</span>하고 있습니다.
+          </h1>
+          <AdvantagesContent />
+        </div>
       </section>
       <section className={styles.projects}>
         <p className={styles.desc}>Featured Works</p>

@@ -29,8 +29,15 @@
   }
 }
 
-.swiper-scrollbar {
-  background-color: red;
+.animation {
+  opacity: 0;
+  transform: translateY(40%);
+  transition: all 0.5s;
+  overflow-y: hidden;
+  &.animate {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+  }
 }
 
 .animation-projects {
@@ -77,7 +84,7 @@
 }
 
 .technology {
-  margin-bottom: 6.9rem;
+  margin-bottom: 20rem;
   h1.heading {
     margin-bottom: 14.179rem;
   }
@@ -87,14 +94,36 @@
 }
 
 .process {
-  padding: 36.97rem 0 86.083rem 0;
-  background-image: url("../../assets/images/Group\ 101.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+  // padding: 36.97rem 0 86.083rem 0;
+  // height: max-content;
+  position: relative;
+  // img {
+  //   height: 141.9rem;
+  //   // position: absolute;
+  //   left: 50%;
+  //   top: 50%;
+  //   transform: translate(-50%, -50%);
+  //   z-index: -9999999;
+  // }
   margin-bottom: 8.473rem;
-  p.desc {
-    margin-bottom: 3.647rem;
+  img {
+    height: 141.9rem;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .content {
+    position: absolute;
+    z-index: 9;
+    left: 50%;
+    top: 31rem;
+    transform: translateX(-50%);
+    h1.heading {
+      margin-bottom: 0;
+    }
+    p.desc {
+      margin-bottom: 3.647rem;
+    }
   }
 }
 
@@ -110,6 +139,11 @@
   margin-bottom: 36.952rem;
   h1.heading {
     margin-bottom: 11.112rem;
+    span {
+      br {
+        display: none;
+      }
+    }
   }
   &-list {
     gap: 9.704rem;
@@ -227,6 +261,13 @@
   }
   .process {
     margin-bottom: 5rem;
+    img {
+      height: 84rem;
+    }
+    .content {
+      width: 504px;
+      top: 140px;
+    }
   }
   .service h1.heading {
     br {
@@ -298,14 +339,20 @@
     left: -90px;
   }
   .technology {
-    margin-bottom: -14.28rem;
+    margin-bottom: 14.28rem;
     h1.heading {
       margin-bottom: 5.42rem;
     }
   }
   .process {
-    background-size: 140%;
-    margin-bottom: -16.28rem;
+    margin: 22rem 0 16rem 0;
+    img {
+      height: 55rem;
+    }
+    .content {
+      top: 0;
+      width: 333px;
+    }
     h1.heading {
       margin-bottom: 0;
       br {
@@ -316,7 +363,7 @@
   .service {
     margin-bottom: 130rem;
     h1.heading {
-      margin-bottom: -5rem;
+      margin-bottom: 0;
       br {
         display: none;
       }
