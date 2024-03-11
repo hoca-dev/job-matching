@@ -6,6 +6,7 @@ import {
   Header,
   PriceCard,
   OfferSection,
+  ScrollAnimationContainer,
 } from "../../components";
 import styles from "./Home.module.scss";
 import frame28 from "../../assets/images/Frame 28.svg";
@@ -52,7 +53,7 @@ export const HomeRoute = () => {
   const isValueSectionInView = useIntersection(valueSectionRef);
 
   const pricesSectionRef = useRef();
-  const isPricesSectionInView = useIntersection(pricesSectionRef);
+  const isPricesSectionInView = useIntersection(pricesSectionRef, 0.2);
 
   useEffect(() => {
     scrollToTop();
@@ -63,10 +64,8 @@ export const HomeRoute = () => {
       <div className={styles["header-hero"]}>
         <Header />
         <section className={styles.hero} ref={heroSectionRef}>
-          <div
-            className={classNames(styles.animation, {
-              [styles.animate]: isHeroSectionInView,
-            })}
+          <ScrollAnimationContainer
+            $isParentSectionIntersecting={isHeroSectionInView}
           >
             <p>HOCA development</p>
             <h1 className={styles.heading}>
@@ -82,7 +81,7 @@ export const HomeRoute = () => {
             <Link to={"/"} className={styles["hero-link"]}>
               <Button>프로젝트 문의</Button>
             </Link>
-          </div>
+          </ScrollAnimationContainer>
         </section>
       </div>
       <section className={styles.technology}>
@@ -138,10 +137,8 @@ export const HomeRoute = () => {
         </Swiper>
       </section>
       <section className={styles.process} ref={processSectionRef}>
-        <div
-          className={classNames(styles.animation, {
-            [styles.animate]: isProcessSectionInView,
-          })}
+        <ScrollAnimationContainer
+          $isParentSectionIntersecting={isProcessSectionInView}
         >
           <div className={styles.content}>
             <p className={styles.desc}>Process for service</p>
@@ -152,13 +149,11 @@ export const HomeRoute = () => {
             </h1>
           </div>
           <img src={process} alt="process back" />
-        </div>
+        </ScrollAnimationContainer>
       </section>
       <section className={styles.service} ref={serviceSectionRef}>
-        <div
-          className={classNames(styles.animation, {
-            [styles.animate]: isServiceSectionInView,
-          })}
+        <ScrollAnimationContainer
+          $isParentSectionIntersecting={isServiceSectionInView}
         >
           <p className={styles.desc}>Specialized Service</p>
           <h1 className={styles.heading}>
@@ -168,7 +163,7 @@ export const HomeRoute = () => {
             <span>새로운 수익창출 방식을 시도</span>하고 있습니다.
           </h1>
           <AdvantagesContent />
-        </div>
+        </ScrollAnimationContainer>
       </section>
       <section className={styles.projects}>
         <p className={styles.desc}>Featured Works</p>
@@ -221,10 +216,8 @@ export const HomeRoute = () => {
         </Swiper>
       </section>
       <section className={styles.value} ref={valueSectionRef}>
-        <div
-          className={classNames(styles.animation, {
-            [styles.animate]: isValueSectionInView,
-          })}
+        <ScrollAnimationContainer
+          $isParentSectionIntersecting={isValueSectionInView}
         >
           <p className={styles.desc}>Our value</p>
           <h1 className={styles.heading}>
@@ -242,13 +235,11 @@ export const HomeRoute = () => {
               allowFullScreen
             ></iframe>
           </div>
-        </div>
+        </ScrollAnimationContainer>
       </section>
       <section className={styles.prices} ref={pricesSectionRef}>
-        <div
-          className={classNames(styles.animation, {
-            [styles.animate]: isPricesSectionInView,
-          })}
+        <ScrollAnimationContainer
+          $isParentSectionIntersecting={isPricesSectionInView}
         >
           <div className={styles["front-img"]}>
             <img src={sumSad} alt="summertime sadness" />
@@ -294,7 +285,7 @@ export const HomeRoute = () => {
           <Link to={"#"} className={classNames(styles["prices-link"])}>
             <Button>자세히 보기</Button>
           </Link>
-        </div>
+        </ScrollAnimationContainer>
       </section>
       <OfferSection />
       <Footer />

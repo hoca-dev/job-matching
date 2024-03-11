@@ -2,7 +2,7 @@
   opacity: 0;
   transform: translateY(40%);
   transition: all 0.5s;
-  overflow-y: hidden;
+  // overflow-y: hidden;
   &.animate {
     transform: translateY(0);
     opacity: 1;

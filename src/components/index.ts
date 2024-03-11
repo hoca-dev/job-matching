@@ -8,3 +8,4 @@ export * from "./GoToTopButton";
 export * from "./DropdownMenu";
 export * from "./AdvantagesContent";
 export * from "./OfferSection";
+export * from "./ScrollAnimationContainer";
