@@ -40,23 +40,44 @@ export const DropdownMenu = () => {
         <nav className={styles.nav}>
           <ul>
             <li>
-              <NavLink to={Routes.Service}>
+              <NavLink
+                to={Routes.Home}
+                className={({ isActive }) => isActive && styles.active}
+              >
+                메인 홈
+                <img src={rightIcon} alt="right icon" />
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={Routes.Service}
+                className={({ isActive }) => isActive && styles.active}
+              >
                 서비스 소개
                 <img src={rightIcon} alt="right icon" />
               </NavLink>
             </li>
             <li>
-              <NavLink to="#">
+              <NavLink
+                to={Routes.Pricing}
+                className={({ isActive }) => isActive && styles.active}
+              >
                 가격정책 <img src={rightIcon} alt="right icon" />
               </NavLink>
             </li>
             <li>
-              <NavLink to="#">
+              <NavLink
+                to={Routes.Testimonials}
+                className={({ isActive }) => isActive && styles.active}
+              >
                 고객후기 <img src={rightIcon} alt="right icon" />
               </NavLink>
             </li>
             <li>
-              <NavLink to="#">
+              <NavLink
+                to={Routes.Team}
+                className={({ isActive }) => isActive && styles.active}
+              >
                 HOCA 팀 <img src={rightIcon} alt="right icon" />
               </NavLink>
             </li>

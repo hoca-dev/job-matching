@@ -26,6 +26,16 @@ export const Header = () => {
                 className={({ isActive }) =>
                   isActive ? `${styles.link} ${styles.active}` : styles.link
                 }
+                to={Routes.Home}
+              >
+                메인 홈
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? `${styles.link} ${styles.active}` : styles.link
+                }
                 to={Routes.Service}
               >
                 서비스 소개
