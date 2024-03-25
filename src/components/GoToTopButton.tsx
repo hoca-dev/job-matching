@@ -3,8 +3,8 @@ import arrowTop from "../assets/images/Arrow-top.svg";
 import { useScrollToTop } from "../hooks";
 
 const Btn = styled.button`
-  width: 8rem;
-  height: 8rem;
+  width: 7rem;
+  height: 7rem;
   border-radius: 50%;
   border: none;
   background-color: #7c19ea;
@@ -13,8 +13,8 @@ const Btn = styled.button`
 
 const BtnContainer = styled.div`
   position: fixed;
-  bottom: 4.7rem;
-  right: 5.5rem;
+  bottom: 3rem;
+  left: 3.4rem;
   z-index: 9;
 `;
 

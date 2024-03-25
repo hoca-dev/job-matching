@@ -85,7 +85,7 @@ export const DropdownMenu = () => {
         </nav>
 
         <div className={styles["request-btn"]}>
-          <button>개발자 채용 의뢰하기</button>
+          <button onClick={() => window.open('https://opnform.com/forms/vah4d7', '_self')}>개발자 채용 의뢰하기</button>
         </div>
       </div>
     </div>

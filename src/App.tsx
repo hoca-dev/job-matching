@@ -8,6 +8,7 @@ import {
   dashboardLoader,
   HomeRoute,
   PricingRoute,
+  ContactsRoute,
 } from "./routes";
 
 const router = createBrowserRouter([
@@ -15,10 +16,10 @@ const router = createBrowserRouter([
   { path: Routes.Service, element: <ServiceRoute /> },
   { path: Routes.Pricing, element: <PricingRoute /> },
   { path: Routes.Testimonials, element: <PricingRoute /> },
-  { path: Routes.Contacts, element: <PricingRoute /> },
   { path: Routes.Team, element: <PricingRoute /> },
   { path: Routes.Register, element: <RegisterRoute /> },
   { path: Routes.Login, element: <LoginRoute /> },
+  { path: Routes.Contacts, element: <ContactsRoute /> },
   {
     path: Routes.Dashboard,
     element: <DashboardRoute />,
