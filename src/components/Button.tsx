@@ -1,6 +1,7 @@
 import { FC } from "react";
 import styled from "styled-components";
 import vectorRight from "../assets/images/Vector-right.svg";
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   children: string;
@@ -34,11 +35,20 @@ const Btn = styled.button`
   }
 `;
 
-export const Button: FC<Props> = ({ children }) => (
-  <Btn>
-    {children}{" "}
-    <span>
-      <img src={vectorRight} alt="vector right" />
-    </span>
-  </Btn>
-);
+export const Button: FC<Props> = ({ children }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/contacts');
+  };
+
+  return (
+    <Btn onClick={handleClick}>
+      {children}{" "}
+      <span>
+        <img src={vectorRight} alt="vector right" />
+      </span>
+    </Btn>
+  );
+};
+

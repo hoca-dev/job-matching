@@ -78,7 +78,7 @@ export const HomeRoute = () => {
               <img src={frame30} alt="frame30" />
               <img src={frame31} alt="frame31" />
             </div>
-            <Link to={"/"} className={styles["hero-link"]}>
+            <Link to={"/contacts"} className={styles["hero-link"]}>
               <Button>프로젝트 문의</Button>
             </Link>
           </ScrollAnimationContainer>
