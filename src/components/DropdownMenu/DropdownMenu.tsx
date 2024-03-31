@@ -42,8 +42,8 @@ export const DropdownMenu = () => {
             <li>
               <NavLink
                 to={Routes.Home}
-                className={({ isActive }) => isActive && styles.active}
-              >
+                className={({ isActive }) => isActive ? styles.active : undefined}
+                >
                 메인 홈
                 <img src={rightIcon} alt="right icon" />
               </NavLink>
@@ -51,41 +51,46 @@ export const DropdownMenu = () => {
             <li>
               <NavLink
                 to={Routes.Service}
-                className={({ isActive }) => isActive && styles.active}
-              >
+                className={({ isActive }) => isActive ? styles.active : undefined}
+                >
                 서비스 소개
                 <img src={rightIcon} alt="right icon" />
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink
                 to={Routes.Pricing}
                 className={({ isActive }) => isActive && styles.active}
               >
                 가격정책 <img src={rightIcon} alt="right icon" />
               </NavLink>
-            </li>
-            <li>
+            </li> */}
+            {/* <li>
               <NavLink
                 to={Routes.Testimonials}
                 className={({ isActive }) => isActive && styles.active}
               >
                 고객후기 <img src={rightIcon} alt="right icon" />
               </NavLink>
-            </li>
-            <li>
+            </li> */}
+            {/* <li>
               <NavLink
                 to={Routes.Team}
                 className={({ isActive }) => isActive && styles.active}
               >
                 HOCA 팀 <img src={rightIcon} alt="right icon" />
               </NavLink>
-            </li>
+            </li> */}
           </ul>
         </nav>
 
         <div className={styles["request-btn"]}>
-          <button onClick={() => window.open('https://opnform.com/forms/vah4d7', '_self')}>개발자 채용 의뢰하기</button>
+          <button
+            onClick={() => window.open('https://opnform.com/forms/vah4d7', '_self')}
+            style={{ cursor: 'pointer'}}
+          >
+            개발자 채용 의뢰하기
+          </button>
         </div>
       </div>
     </div>

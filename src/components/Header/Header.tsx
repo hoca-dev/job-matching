@@ -41,7 +41,7 @@ export const Header = () => {
                 서비스 소개
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink
                 className={({ isActive }) =>
                   isActive ? `${styles.link} ${styles.active}` : styles.link
@@ -50,10 +50,10 @@ export const Header = () => {
               >
                 가격정책
               </NavLink>
-            </li>
+            </li> */}
           </ul>
           <ul>
-            <li>
+            {/* <li>
               <NavLink
                 className={({ isActive }) =>
                   isActive ? `${styles.link} ${styles.active}` : styles.link
@@ -62,7 +62,7 @@ export const Header = () => {
               >
                 고객 후기
               </NavLink>
-            </li>
+            </li> */}
             <li>
               <NavLink
                 className={({ isActive }) =>
@@ -73,7 +73,7 @@ export const Header = () => {
                 문의하기
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink
                 className={({ isActive }) =>
                   isActive ? `${styles.link} ${styles.active}` : styles.link
@@ -82,7 +82,7 @@ export const Header = () => {
               >
                 HOCA 팀
               </NavLink>
-            </li>
+            </li> */}
           </ul>
         </nav>
       </header>
